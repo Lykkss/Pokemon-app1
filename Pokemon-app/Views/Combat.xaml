@@ -1,0 +1,74 @@
+﻿<Window x:Class="Pokemon_app.Views.Combat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pokemon_app.Views"
+        mc:Ignorable="d"
+        Title="Combat" Height="450" Width="800">
+    <Grid>
+        <!-- Informations sur le monstre du joueur -->
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="237,78,0,0">
+            <TextBlock Text="Monstre Joueur" FontWeight="Bold" FontSize="16"/>
+            <TextBlock Text="{Binding PlayerMonster.Name}" FontSize="14"/>
+            <TextBlock Text="Santé : {Binding PlayerMonster.Health}" FontSize="14"/>
+
+            <TextBlock Text="Monstre Ennemi" FontWeight="Bold" FontSize="16"/>
+            <TextBlock Text="{Binding EnemyMonster.Name}" FontSize="14"/>
+            <TextBlock Text="Santé : {Binding EnemyMonster.Health}" FontSize="14"/>
+        </StackPanel>
+
+        <!-- Bouton pour attaquer -->
+        <Button Content="Attaquer" Width="120" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                Margin="358,0,0,20" Command="{Binding AttackCommand}" />
+
+        <!-- Bouton pour sauvegarder -->
+        <Button Content="Sauvegarder" Width="120" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                Margin="114,0,0,20" Command="{Binding SaveGameCommand}" />
+
+        <!-- Bouton pour charger -->
+        <Button Content="Charger" Width="120" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,20,20" Command="{Binding LoadGameCommand}" />
+        <TabControl TabStripPlacement="Left" SelectedItem="{Binding SelectedTab}" Margin="0,0,722,-150">
+            <!-- Onglet Accueil -->
+            <TabItem Header="Accueil">
+                <Grid>
+                    <!-- Message de l'onglet Accueil -->
+                    <TextBlock Text="{Binding HomeMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Onglet Monstres -->
+            <TabItem Header="Monstres">
+                <Grid>
+                    <!-- Message de l'onglet Monstres -->
+                    <TextBlock Text="{Binding MonstersMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Onglet Combat -->
+            <TabItem Header="Combat" Height="24" Margin="-2,-2,0,0" VerticalAlignment="Top">
+                <Grid Margin="-83,0,71,0" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <!-- Message de l'onglet Combat -->
+                    <TextBlock Text="{Binding CombatMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Onglet Paramètres -->
+            <TabItem Header="Paramètres">
+                <Grid>
+                    <!-- Message de l'onglet Paramètres -->
+                    <TextBlock Text="{Binding SettingsMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,45 @@
+﻿<Window x:Class="Pokemon_app.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Page d'accueil" Height="600" Width="800">
+    <DockPanel>
+
+        <!-- Menu Vertical : TabControl avec les onglets -->
+        <TabControl TabStripPlacement="Left" SelectedItem="{Binding SelectedTab}" DockPanel.Dock="Left" Width="200">
+            <!-- Onglet Accueil -->
+            <TabItem Header="Accueil">
+                <Grid>
+                    <!-- Message de l'onglet Accueil -->
+                    <TextBlock Text="{Binding HomeMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Onglet Monstres -->
+            <TabItem Header="Monstres">
+                <Grid>
+                    <!-- Message de l'onglet Monstres -->
+                    <TextBlock Text="{Binding MonstersMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Onglet Combat -->
+            <TabItem Header="Combat" Height="24">
+                <Grid>
+                    <!-- Message de l'onglet Combat -->
+                    <TextBlock Text="{Binding CombatMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Onglet Paramètres -->
+            <TabItem Header="Paramètres">
+                <Grid>
+                    <!-- Message de l'onglet Paramètres -->
+                    <TextBlock Text="{Binding SettingsMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <!-- Contenu principal qui change en fonction de l'onglet sélectionné -->
+        <ContentControl Content="{Binding SelectedTabContent}" DockPanel.Dock="Right" Margin="5"/>
+    </DockPanel>
+</Window>
